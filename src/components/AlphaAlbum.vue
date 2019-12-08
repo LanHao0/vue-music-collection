@@ -1,11 +1,11 @@
 <template>
     <div>
-        <a class="sortBlue">{{years}}</a>
+        <a class="sortBlue">{{alpha}}</a>
 
         <div class="row">
 
             <div v-for="data in albumData" :key="data.id">
-                <div v-if="years === data.year">
+                <div v-if="alpha === data.albumName.substr(0,1)">
                     <Album  :album-name="data.albumName"
                             :artist="data.artist"
                             :cover="data.imgURL"
@@ -30,7 +30,7 @@
     export default {
         name: "yearAlbum",
         props:{
-            years:String,
+            alpha:String,
         },
         components:{
             Album

@@ -38,8 +38,9 @@
           <div v-if="sortSelected === 'Year'">
             <year-album v-for="year in soManyYears" :years="year" :key="year"></year-album>
           </div>
-
-
+          <div v-if="sortSelected === 'Alpha'">
+            <alpha-album v-for="letters in soManyLetters" :alpha="letters" :key="letters"></alpha-album>
+          </div>
 
 
         </div>
@@ -51,11 +52,13 @@
 <script>
   import yearAlbum from "./components/yearAlbum";
   import {jsonInput} from "./components/goodmusic";
+  import AlphaAlbum from "./components/AlphaAlbum";
 
   export default {
   name: 'app',
   components: {
-    yearAlbum
+    yearAlbum,
+    AlphaAlbum
   },
   data(){
     return {
@@ -77,7 +80,9 @@
                   '2001',
                   '2000',
                   '1999'
-                ]
+                ],
+      soManyLetters:['A','B','C','D','E','F','G','H','I','J','K','L','M',
+        'N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     }
   }
 }

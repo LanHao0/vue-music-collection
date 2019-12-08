@@ -1,6 +1,11 @@
 <template>
     <div class="col-md-3 col-sm-6 col-6 col-lg-3 col-xl-auto">
-        <router-link :to="'/insideAlbum/'+id">
+        <router-link :to="{
+                            name:'insideAlbum',
+                            params:{
+                                id:index
+                            }
+                          }">
         <div  class="albumCard">
             <img :src="require('@/assets/cover/'+cover)">
             <div class="albumDes">
@@ -19,7 +24,7 @@
             albumName:String,
             artist:String,
             cover:String,
-            id:String,
+            index:String
         }
     }
 </script>
