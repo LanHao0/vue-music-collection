@@ -2,10 +2,8 @@
 
   <div class="container-fluid bg-black text-white">
     <div class="row">
-      <div class="col-md-2 col-sm-1 col-lg-2">
-      </div>
 
-      <div class="col-md-10 col-sm-11 col-lg-10">
+      <div class="col-md-9 col-sm-10 col-lg-auto">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
@@ -46,6 +44,11 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-3 col-sm-2 col-lg-2" v-html="ad">
+
+    </div>
+
   </div>
 </template>
 
@@ -53,6 +56,35 @@
   import yearAlbum from "./components/yearAlbum";
   import {jsonInput} from "./components/goodmusic";
   import AlphaAlbum from "./components/AlphaAlbum";
+
+  let data=jsonInput;
+  let yearARR=[];
+  let AZARR=[];
+
+  for(let i=0;i<data.length;i++){
+    if(yearARR.indexOf(data[i].year)===-1){
+      yearARR.push(data[i].year)
+    }
+    if (AZARR.indexOf(data[i].albumName.substr(0,1))===-1){
+      AZARR.push((data[i].albumName.substr(0,1)));
+    }
+  }
+
+
+  AZARR.sort(compareAz);
+  function compareAz(a, b) {
+    let aa=a;
+    let bb = b;
+    if(aa>bb){return 1}
+    if(aa<bb){return -1}
+    return 0
+  }
+  yearARR.sort(desCompare)
+  function desCompare(a,b){
+    return b-a;
+  }
+
+
 
   export default {
   name: 'app',
@@ -68,21 +100,13 @@
       { text: 'Release Year', value: 'Year' },
       { text: 'A-Z', value: 'Alpha' },
       ],
-      soManyYears:['2019','2018','2017','2016','2015','2014','2013','2012','2011','2010',
-                  '2009',
-                  '2008',
-                  '2007',
-                  '2006',
-                  '2005',
-                  '2004',
-                  '2003',
-                  '2002',
-                  '2001',
-                  '2000',
-                  '1999'
-                ],
-      soManyLetters:['A','B','C','D','E','F','G','H','I','J','K','L','M',
-        'N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+      soManyYears:yearARR,
+      soManyLetters:AZARR,
+      ad:'        <!-- 歌单旁边 -->\n' +
+              '        <ins class="adsbygoogle"\n' +
+              '             style="display:inline-block;width:300px;height:1050px"\n' +
+              '             data-ad-client="ca-pub-1635707682070310"\n' +
+              '             data-ad-slot="3629680832"></ins>\n',
     }
   }
 }

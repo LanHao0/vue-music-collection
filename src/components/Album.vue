@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-3 col-sm-6 col-6 col-lg-3 col-xl-auto">
+    <div class="">
         <router-link :to="{
                             name:'insideAlbum',
                             params:{
@@ -7,7 +7,7 @@
                             }
                           }">
         <div  class="albumCard">
-            <img :src="require('@/assets/cover/'+cover)">
+            <img v-lazy="require('@/assets/cover/'+cover)" :key="cover">
             <div class="albumDes">
                 <h6>{{ albumName }}</h6>
                 <p class="greyArtist">{{ artist }}</p>

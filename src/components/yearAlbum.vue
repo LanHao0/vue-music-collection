@@ -3,9 +3,8 @@
         <a class="sortBlue">{{years}}</a>
 
         <div class="row">
-
             <div v-for="data in albumData" :key="data.id">
-                <div v-if="years === data.year">
+                <div v-if="years === data.year" class="col-md-4 col-sm-6 col-6 col-lg-auto">
                     <Album  :album-name="data.albumName"
                             :artist="data.artist"
                             :cover="data.imgURL"
