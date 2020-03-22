@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="col-md-4 col-sm-6 col-6 col-lg-auto" style="padding:5px;">
         <router-link :to="{
                             name:'insideAlbum',
                             params:{
@@ -30,9 +30,10 @@
 </script>
 
 <style scoped>
+
     img {
-        width: 160px;
-        height: 160px;
+        width: 150px;
+        height: 150px;
         margin-bottom: 10px;
         margin-top: 10px;
         transition: all 1s;

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import router from "./router";
 import Home from "./Home";
 import VueLazyLoad from 'vue-lazyload'

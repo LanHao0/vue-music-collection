@@ -3,7 +3,7 @@
   <div class="container-fluid bg-black text-white">
     <div class="row">
 
-      <div class="col-md-9 col-sm-10 col-lg-auto">
+      <div class="col-md-12 col-sm-12 col-lg-12 col-12">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
@@ -36,6 +36,7 @@
           <div v-if="sortSelected === 'Year'">
             <year-album v-for="year in soManyYears" :years="year" :key="year"></year-album>
           </div>
+
           <div v-if="sortSelected === 'Alpha'">
             <alpha-album v-for="letters in soManyLetters" :alpha="letters" :key="letters"></alpha-album>
           </div>
@@ -43,10 +44,6 @@
 
         </div>
       </div>
-    </div>
-
-    <div class="col-md-3 col-sm-2 col-lg-2" v-html="ad">
-
     </div>
 
   </div>
